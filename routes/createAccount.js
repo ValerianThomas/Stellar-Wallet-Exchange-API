@@ -3,9 +3,8 @@ const rp = require('request-promise')
 const server = new Stellar.Server('https://horizon-testnet.stellar.org')
 let pair = Stellar.Keypair.random()
 
-routeName = "/Account"
-
 Stellar.Network.useTestNetwork()
+
 module.exports = Account = (app)=> {
 
 	app.post( "/account", async (req,res) => {
@@ -14,6 +13,7 @@ module.exports = Account = (app)=> {
 			qs: {addr: pair.publicKey()},
 			json: true
 		})
+		res.status(200)
 		res.send({
 			publicKey: pair.publicKey(),
 			privateKey: pair.secret(),
@@ -23,6 +23,7 @@ module.exports = Account = (app)=> {
 
 	app.get( "/account/:walletAddress", async (req, res) => {
 		if(!req.params || !req.params.walletAddress) {
+			res.status(400)
 			res.send("you must enter a walletAddress")
 			return
 		}
@@ -35,6 +36,7 @@ module.exports = Account = (app)=> {
 			console.log("error", error)
 		}
 		console.log("my account", account)
+		res.status(200)
 		res.send(account)
 
 	} )

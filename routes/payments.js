@@ -5,6 +5,7 @@ const server = new Stellar.Server('https://horizon-testnet.stellar.org')
 module.exports = (app) => {
 	app.post('/payment', async (req, res) => {
 		if(!req.body || !req.body.sender || !req.body.receiver || !req.body.amount || !req.body.secret){
+			res.status(400)
 			res.send("Error: missing key data")
 			 return
 			}
@@ -27,11 +28,13 @@ module.exports = (app) => {
 			console.log('\n\nSuccess! View the transaction at: ')
 		    console.log(transactionResult._links.transaction.href)
 		    console.log(JSON.stringify(transactionResult, null, 2))
+		    res.status(200)
 	    	res.send("Transaction successful!")
 		}
 		catch(error){
 			console.log('An error has occured:')
 		    console.log(err)
+		    res.status(400)
 		    res.send("Transaction failed")
 		}
 	})
