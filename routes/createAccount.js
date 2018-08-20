@@ -24,20 +24,21 @@ module.exports = Account = (app)=> {
 	app.get( "/account/:walletAddress", async (req, res) => {
 		if(!req.params || !req.params.walletAddress) {
 			res.status(400)
-			res.send("you must enter a walletAddress")
+			res.send({error: "you must set a public-key in params"})
 			return
 		}
 		const address = req.params.walletAddress
-		console.log("address", address)
 		let account;
 		try{
 		 account = await server.loadAccount(address)
+		 	res.status(200)
+			res.send(account)
 		} catch(error){
-			console.log("error", error)
+			res.status(404)
+			res.send({ error: error, message: "the public key doesn't match any address"})
 		}
-		console.log("my account", account)
-		res.status(200)
-		res.send(account)
+
+
 
 	} )
 }

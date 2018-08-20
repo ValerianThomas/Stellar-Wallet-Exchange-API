@@ -3,10 +3,12 @@ const rp = require('request-promise')
 const server = new Stellar.Server('https://horizon-testnet.stellar.org')
 
 module.exports = (app) => {
-	app.post('/payment', async (req, res) => {
+	app.post('/transaction', async (req, res) => {
 		if(!req.body || !req.body.sender || !req.body.receiver || !req.body.amount || !req.body.secret){
 			res.status(400)
-			res.send("Error: missing key data")
+			res.send({
+				error: "missing key params"
+			})
 			 return
 			}
 		const senderWallet = req.body.sender
@@ -32,10 +34,11 @@ module.exports = (app) => {
 	    	res.send("Transaction successful!")
 		}
 		catch(error){
-			console.log('An error has occured:')
-		    console.log(err)
-		    res.status(400)
-		    res.send("Transaction failed")
+		    res.status(404)
+		    res.send({
+		    	error: error,
+		    	message: "Transaction failed"
+		    })
 		}
 	})
 
