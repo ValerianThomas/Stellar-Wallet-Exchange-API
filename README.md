@@ -30,13 +30,15 @@ In the testnet, the wallet will be automatically credited with 10000 Lumens.
  |`POST`|
 
 * **Success Response:**
-* **Code:** 200 <br />
+* **Code:** 200
     **Content:** `{
 			publicKey: XXXXXXXXXXX,
 			privateKey: XXXXXXXXXX,
 			message: "Here are your access keys"
 		}`
-    
+
+------
+
 **Check Balance** 
 Return all the details of a specific Wallet
 * **URL**
@@ -62,7 +64,9 @@ Return all the details of a specific Wallet
  **Error Response:**
   * **Code:** 404
     **Content:** `{error: "the public-key doesn't match any address"}`
-    
+ 
+ ------
+ 
  **Create a transaction** 
 Create a transaction between two accounts. 
 * **URL**
@@ -72,7 +76,6 @@ Create a transaction between two accounts.
  |`POST`|
  
 *  **body Params**
-in JSON
 **Required:**
 call must provides a receiver public-key, the sender public-address, the sender private-key (to confirm the transaction) and the amount to be transfered
 ```
@@ -83,8 +86,6 @@ call must provides a receiver public-key, the sender public-address, the sender 
 	"secret":"SDOVBV6H6WTCGO5D7PRD6T37S7UGMKX43EAT6SJO3T2MIXNGTCHFCKKH"
 }
 ```
-in 
-  
    
 * **Success Response:**
 * **Code:** 200
