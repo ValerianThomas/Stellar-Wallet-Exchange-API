@@ -59,7 +59,7 @@ Return all the details of a specific Wallet
 * **Error Response:**
   * **Code:** 400
     **Content:** `{error: "you must set a public-key in params"}`
-    OR
+    
   * **Code:** 404
     **Content:** `{error: "the public-key doesn't match any address"}`
  
@@ -92,7 +92,7 @@ call must provides a receiver public-key, the sender public-address, the sender 
 * **Error Response:**
   * **Code:** 400
     **Content:** `{error: "missing key parameters"}`
-    OR
+    
   * **Code:** 404
     **Content:** `{
 		    	error: error,
