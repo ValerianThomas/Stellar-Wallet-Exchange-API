@@ -18,7 +18,7 @@ Clone the repo & run this command
  # Calls
  By using the API As Is, the Stellar instance will be running on the testnet.
  
-**Create Wallet** 
+#### Create Wallet 
 Create a new Stellar wallet. 
 The call will return the public and the private keys of this newly created wallet.
 In the testnet, the wallet will be automatically credited with 10000 Lumens.
@@ -31,7 +31,7 @@ In the testnet, the wallet will be automatically credited with 10000 Lumens.
 
 * **Success Response:**
 * **Code:** 200
-    **Content:** `{
+* **Content:** `{
 			publicKey: XXXXXXXXXXX,
 			privateKey: XXXXXXXXXX,
 			message: "Here are your access keys"
@@ -39,7 +39,7 @@ In the testnet, the wallet will be automatically credited with 10000 Lumens.
 
 ------
 
-**Check Balance** 
+#### Check Balance 
 Return all the details of a specific Wallet
 * **URL**
 /account/:walletAddress
@@ -48,8 +48,7 @@ Return all the details of a specific Wallet
  |`GET`|
  
 *  **URL Params**
-
-  **Required:**
+* **Required:**
  the wallet public address must be provided in the params
   
    
@@ -57,17 +56,16 @@ Return all the details of a specific Wallet
 * **Code:** 200
     **Content:** 
     all the assets in the wallet plus Meta data
-**Error Response:**
+* **Error Response:**
   * **Code:** 400
     **Content:** `{error: "you must set a public-key in params"}`
     OR
- **Error Response:**
   * **Code:** 404
     **Content:** `{error: "the public-key doesn't match any address"}`
  
  ------
  
- **Create a transaction** 
+ #### Create a transaction
 Create a transaction between two accounts. 
 * **URL**
 /transaction
@@ -76,7 +74,7 @@ Create a transaction between two accounts.
  |`POST`|
  
 *  **body Params**
-**Required:**
+* **Required:**
 call must provides a receiver public-key, the sender public-address, the sender private-key (to confirm the transaction) and the amount to be transfered
 ```
 {
@@ -91,11 +89,10 @@ call must provides a receiver public-key, the sender public-address, the sender 
 * **Code:** 200
     **Content:** 
     "Transaction successful!"
-**Error Response:**
+* **Error Response:**
   * **Code:** 400
     **Content:** `{error: "missing key parameters"}`
     OR
- **Error Response:**
   * **Code:** 404
     **Content:** `{
 		    	error: error,
