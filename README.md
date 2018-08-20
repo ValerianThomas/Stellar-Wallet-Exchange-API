@@ -78,7 +78,7 @@ Create a transaction between two accounts.
 call must provides a receiver public-key, the sender public-address, the sender private-key (to confirm the transaction) and the amount to be transfered
 ```
 {
-  "sender":"GCWZ5CDZQSTASBFG7RIFIAWVCJ4FTCGBUFR5ACPSU4HB5WF5AY5TOL2Q",
+  	"sender":"GCWZ5CDZQSTASBFG7RIFIAWVCJ4FTCGBUFR5ACPSU4HB5WF5AY5TOL2Q",
 	"receiver":"GCNLQBJXTRCDI4F2XAV7FIF44MQGH7KGKQU4O7PUDVNU6QDDODHCPPDU",
 	"amount":"100.50",
 	"secret":"SDOVBV6H6WTCGO5D7PRD6T37S7UGMKX43EAT6SJO3T2MIXNGTCHFCKKH"
