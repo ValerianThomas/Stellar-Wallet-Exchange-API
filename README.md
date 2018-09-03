@@ -1,6 +1,6 @@
 # Stellar-Wallet-Exchange-API
 A simple node.js REST API connected to the Stellar blockChain
-The API enables Wallet creation, Balance checking and peer to peer Lumens transfer (XML aka the underlying coin in the Stellar Ecosystem)
+The API enables Wallet creation, Balance checking and peer to peer Lumens transfers (XML aka the underlying coin in the Stellar Ecosystem)
 
 ## Disclaimer 
 This API is for learning purposes only and must not be used in production
